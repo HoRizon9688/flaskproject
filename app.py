@@ -31,7 +31,18 @@ def movie():
 
 @app.route('/rating')
 def rating():
-    return render_template("rating.html")
+    rating = []
+    num = []
+    database = sqlite3.connect('movie250.db')
+    cursor = database.cursor()
+    sql = '''select rating, count(rating) from movie250 group by rating'''
+    data = cursor.execute(sql)
+    for i in data:
+        rating.append(i[0])
+        num.append((i[1]))
+    cursor.close()
+    database.close()
+    return render_template("rating.html", rating=rating, num=num)
 
 
 @app.route('/word')
