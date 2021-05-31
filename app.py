@@ -40,9 +40,17 @@ def rating():
     for i in data:
         rating.append(i[0])
         num.append((i[1]))
+
+    score = []
+    rank = []
+    new_sql = '''select id, rating from movie250 group by id'''
+    new_data = cursor.execute(new_sql)
+    for j in new_data:
+        rank.append(j[0])
+        score.append(j[1])
     cursor.close()
     database.close()
-    return render_template("rating.html", rating=rating, num=num)
+    return render_template("rating.html", rating=rating, num=num, rank=rank, score=score)
 
 
 @app.route('/word')
