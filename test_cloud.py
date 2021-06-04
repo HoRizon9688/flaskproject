@@ -39,5 +39,5 @@ image_colors = ImageColorGenerator(img_array)
 plt.figure(figsize=(1.2, 1), dpi=1200)
 plt.imshow(wc.recolor(color_func=image_colors), interpolation="bilinear")
 plt.axis('off')  # 不显示坐标轴
-# plt.show()
-plt.savefig(r'.\static\assets\img\word.jpg')
+plt.show()
+# plt.savefig(r'.\static\assets\img\word.jpg')

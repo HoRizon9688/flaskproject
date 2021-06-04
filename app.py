@@ -53,11 +53,13 @@ def rating():
     return render_template("rating.html", rating=rating, num=num, rank=rank, score=score)
 
 
+# 待完善
 @app.route('/word')
 def word():
     return render_template("word.html")
 
 
+# 待完善
 @app.route('/team')
 def team():
     return render_template("team.html")
